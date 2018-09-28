@@ -30,7 +30,7 @@ film1.save
 film2.save
 
 
-screening1 = Screening.new({'film_id' => film1.id, 'show_time' => 1600, 'tickets_available' => 10 })
+screening1 = Screening.new({'film_id' => film1.id, 'show_time' => 1600, 'tickets_available' => 3 })
 screening2 = Screening.new({'film_id' => film1.id, 'show_time' => 2000, 'tickets_available' => 10 })
 screening3 = Screening.new({'film_id' => film2.id, 'show_time' => 1500, 'tickets_available' => 10 })
 screening4 = Screening.new({'film_id' => film2.id, 'show_time' => 1900, 'tickets_available' => 10 })
@@ -78,10 +78,8 @@ screening4.save
 customer1.buy_ticket(film1, screening1)
 customer2.buy_ticket(film1, screening1)
 customer3.buy_ticket(film1, screening1)
-customer4.buy_ticket(film1, screening1)
-
+p customer4.buy_ticket(film1, screening1)
 
 # screening1 = Screening.new({'film_id' => film1.id, 'show_time' => 1600, 'tickets_available' => 10 })
-
 binding.pry
 nil
