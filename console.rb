@@ -57,11 +57,12 @@ ticket7.save
 # customer1.films
 # film2.customers
 
-################# customer1.film_count  this is not necessary 
-# film2.customer_count
-customer4.film_count
+################# customer1.film_count  this is not necessary
+film2.customer_count
+# customer4.film_count
 customer4.ticket_count
 
+customer1.buy_ticket(film1)
 
 binding.pry
 nil

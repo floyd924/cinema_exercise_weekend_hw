@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./customer.rb')
+require('pry')
 
 class Ticket
 
@@ -29,6 +31,24 @@ class Ticket
     return objects
   end
 
+######################
+  # def film_price
+  #   sql = "SELECT films.*
+  #   FROM films
+  #   INNER JOIN tickets
+  #   ON films.id = tickets.film_id
+  #   WHERE tickets.film_id = $1;
+  #   "
+  #   values = [@film_id]
+  #   results = SqlRunner.run(sql, values)
+  #   objects = results.map { |e| Film.new(e) }
+  #   fee = objects['fee'].to_i
+  #   return fee
+  # end
+##############################
+
+ ## I tried so haaaard, and got so faaaar, but in the eeeeend, it doesn't even maaaterrr
+
 
 
   def save()
@@ -40,7 +60,14 @@ class Ticket
     values = [@customer_id, @film_id]
     ticket = SqlRunner.run(sql, values)[0]
     @id = ticket['id'].to_i
+
+    # film_fee
+    #
+    # reduce_customer_funds(film_fee)
+
   end
+
+
 
   def delete()
     sql = "

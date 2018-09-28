@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./ticket.rb')
 
 class Customer
 
@@ -71,7 +72,7 @@ class Customer
 
   end
 
-#####this isn't really necessary 
+#####this isn't really necessary
   # def film_count()
   #   sql = "
   #   SELECT films.*
@@ -96,6 +97,14 @@ class Customer
     objects = results.map { |e| Ticket.new(e)  }
     ticket_count = objects.count
     return ticket_count
+
+  end
+
+
+  def buy_ticket(film)
+    Ticket.new({ 'customer_id' => @id, 'film_id' => (film).id})
+    cost = (film.price)
+    @funds -= cost
 
   end
 
