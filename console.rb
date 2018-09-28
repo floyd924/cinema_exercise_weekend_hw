@@ -54,8 +54,11 @@ ticket7.save
 # customer1.update
 # film1.update
 
-customer1.films
-film2.customers
+# customer1.films
+# film2.customers
+
+customer1.films_count
+film2.customer_count
 
 
 binding.pry
