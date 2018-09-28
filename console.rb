@@ -1,19 +1,19 @@
-require_relative('./models/customers.rb')
-require_relative('./models/tickets.rb')
-require_relative('./films.rb')
+require_relative('./models/customer.rb')
+require_relative('./models/ticket.rb')
+require_relative('./models/film.rb')
 
 require('pry')
 
 
-Ticket.delte_all()
+Ticket.delete_all()
 Film.delete_all()
 Customer.delete_all()
 
 
-customer1 = Customer.new({ 'name' => 'Iain', 'funds' => 70})
-customer2 = Customer.new({ 'name' => 'Alex', 'funds' => 60})
-customer3 = Customer.new({ 'name' => 'Sean', 'funds' => 200})
-customer4 = Customer.new({ 'name' => 'Michael', 'funds' => 40})
+customer1 = Customer.new({ 'name' => "Iain", 'funds' => 70})
+customer2 = Customer.new({ 'name' => "Alex", 'funds' => 60})
+customer3 = Customer.new({ 'name' => "Sean", 'funds' => 200})
+customer4 = Customer.new({ 'name' => "Michael", 'funds' => 40})
 
 
 customer1.save

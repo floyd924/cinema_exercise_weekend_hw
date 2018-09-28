@@ -2,12 +2,16 @@ require_relative('../db/sql_runner.rb')
 
 class Customer
 
+  attr_reader :id
+  attr_accessor :name, :funds
 
-  def intialize(options)
+
+  def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @funds = options['funds']
+    @funds = options['funds'].to_i
   end
+
 
   def self.delete_all
     sql = "
@@ -22,7 +26,7 @@ class Customer
     RETURNING id;
     "
     values = [@name, @funds]
-    customer = SqlRunner.run(sql, values)
+    customer = SqlRunner.run(sql, values)[0]
     @id = customer['id'].to_i
   end
 
