@@ -20,6 +20,15 @@ class Ticket
     SqlRunner.run(sql, values)
   end
 
+  def self.all()
+    sql = "
+    SELECT * FROM tickets;
+    "
+    hashes = SqlRunner.run(sql)
+    objects = hashes.map { |e| Ticket.new(e) }
+    return objects
+  end
+
 
 
   def save()

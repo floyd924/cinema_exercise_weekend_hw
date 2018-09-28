@@ -44,3 +44,16 @@ ticket4.save
 ticket5.save
 ticket6.save
 ticket7.save
+
+# Film.all
+# Ticket.all
+# Customer.all
+
+# customer1.name = "Voldemort"
+# film1.title = "Mr Beans Holiday"
+# customer1.update
+# film1.update
+
+
+binding.pry
+nil

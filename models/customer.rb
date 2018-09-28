@@ -12,6 +12,14 @@ class Customer
     @funds = options['funds'].to_i
   end
 
+  def self.all()
+    sql = "
+    SELECT * FROM customers;"
+    hashes = SqlRunner.run(sql)
+    objects = hashes.map { |e| Customer.new(e)  }
+    return objects
+  end
+
 
   def self.delete_all
     sql = "
@@ -35,6 +43,16 @@ class Customer
     DELETE FROM customers
     WHERE id = $1;"
     values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update()
+    sql = "
+    UPDATE customers
+    SET (name, funds) = ($1, $2)
+    WHERE id = $3;
+    "
+    values = [@name, @funds, @id]
     SqlRunner.run(sql, values)
   end
 

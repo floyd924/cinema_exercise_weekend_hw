@@ -11,6 +11,17 @@ class Film
     @price = options['price'].to_i
   end
 
+  def self.all()
+    sql = "
+    SELECT * FROM films;"
+    result_hashes = SqlRunner.run(sql)
+    array_of_objects = result_hashes.map do |flm| Film.new(flm)
+    end
+    return array_of_objects
+  end
+
+
+
   def self.delete_all
     sql = "
     DELETE FROM films;
@@ -35,6 +46,15 @@ class Film
     DELETE FROM films
     WHERE id = $1;"
     values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update()
+    sql = "UPDATE films
+    SET (title, price) = ($1, $2)
+    WHERE id = $3;
+    "
+    values = [@title, @price, @id]
     SqlRunner.run(sql, values)
   end
 
