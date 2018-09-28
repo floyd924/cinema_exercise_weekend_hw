@@ -105,7 +105,6 @@ class Customer
     Ticket.new({ 'customer_id' => @id, 'film_id' => (film).id})
     cost = (film.price)
     @funds -= cost
-
   end
 
 

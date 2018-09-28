@@ -1,10 +1,11 @@
 require_relative('./models/customer.rb')
 require_relative('./models/ticket.rb')
 require_relative('./models/film.rb')
+require_relative('./models/screening.rb')
 
 require('pry')
 
-
+Screening.delete_all()
 Ticket.delete_all()
 Film.delete_all()
 Customer.delete_all()
@@ -63,6 +64,11 @@ film2.customer_count
 customer4.ticket_count
 
 customer1.buy_ticket(film1)
+
+#create some screenings,
+#customer1.buy_ticket_b(film1, screening1)
+screening1 = Screening.new({'film_id' => film1.id, 'show_time' => 1600, 'tickets_available' => 10 })
+screening1.save
 
 binding.pry
 nil
