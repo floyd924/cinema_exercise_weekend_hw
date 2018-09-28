@@ -72,4 +72,20 @@ class Film
     return objects
   end
 
+  def customer_count()
+    sql = "
+    SELECT customers.*
+    FROM customers
+    INNER JOIN tickets
+    ON customers.id = tickets.customer_id
+    WHERE tickets.film_id = $1;
+    "
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    objects = results.map { |e| Customer.new(e) }
+    object_count = objects.count
+    return object_count
+  end
+
+
 end

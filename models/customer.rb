@@ -71,6 +71,34 @@ class Customer
 
   end
 
+#####this isn't really necessary 
+  # def film_count()
+  #   sql = "
+  #   SELECT films.*
+  #   FROM films
+  #   INNER JOIN tickets
+  #   ON films.id = tickets.film_id
+  #   WHERE tickets.customer_id = $1;"
+  #   values = [@id]
+  #   films_hash = SqlRunner.run(sql, values)
+  #   films_array = films_hash.map { |e| Film.new(e)  }
+  #   number_of_films = films_array.count
+  #   return number_of_films
+  # end
+
+  def ticket_count()
+    sql = "
+    SELECT tickets.*
+    FROM tickets
+    WHERE tickets.customer_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    objects = results.map { |e| Ticket.new(e)  }
+    ticket_count = objects.count
+    return ticket_count
+
+  end
+
 
 
 end
