@@ -101,10 +101,16 @@ class Customer
   end
 
 
-  def buy_ticket(film)
-    Ticket.new({ 'customer_id' => @id, 'film_id' => (film).id})
+  def buy_ticket(film, screening)
+    ##do i need to specify which film? since the screening has a film id anyway....
+
+    ticket1 = Ticket.new({ 'customer_id' => @id, 'film_id' => film.id, 'screening_id' => screening.id})
+    ticket1.save
     cost = (film.price)
     @funds -= cost
+    update()
+    screening.tickets_available -= 1
+    screening.update
   end
 
 
