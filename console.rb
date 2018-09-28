@@ -54,6 +54,9 @@ ticket7.save
 # customer1.update
 # film1.update
 
+customer1.films
+film2.customers
+
 
 binding.pry
 nil
